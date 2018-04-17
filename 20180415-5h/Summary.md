@@ -61,3 +61,26 @@
 1.  先利用无向边建图找环，然后将现在的所有的连通图缩点；
 2.  再根据有向边建图，若新边\<u, v>的两个顶点在第一步缩进了同一个点，得到环；
 3.  新图BFS拓扑排序，若最后不能删除所有点，则得到环。（我也不知道为什么当时在这一步写了DFS… 大概是脑子瓦特了吧）
+
+
+
+##### [HDU 5216 Segment](http://acm.hdu.edu.cn/showproblem.php?pid=5216)（猜结论）              by LucasZhao
+
+1.  题目看上去有点像概率dp，不过猜了个结论：将array A和array B分别排序一下，这时对应的Ai和Bi是1~M的最优排列；
+2.  这样，可以直接判不可能情况，再max（两边剩余长度、每个Bi+1-Ai的剩余长度）即可；
+
+
+
+##### [HDU 5218 Game](http://acm.hdu.edu.cn/showproblem.php?pid=5218)（约瑟夫环）              by LucasZhao
+
+1.  约瑟夫环，公式f[1]=0;  f[i]=(f[i-1]+m)%i; (i>1)，此题的m是集合中任意元素，因此直接遍历集合，每种都处理即可；
+2.  令 dp[i][j] 表示剩下i个人时，位置为j的人是否可能获胜。转移方程：if(dp[i-1][j])	dp[i][(j+m[k])%i]=1;
+
+
+
+##### [HDU 5223 GCD](http://acm.hdu.edu.cn/showproblem.php?pid=5223)（构造、思维）              by LucasZhao
+
+1.  很cf的一题，明显构造，直接构造ans[i]为当前ans[i]和区间gcd的lcm即可，ans[i]初始化为1；
+2.  由于有冲突要判断，因此再对构造后的结果查询一遍即可。
+
+
