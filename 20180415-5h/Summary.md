@@ -84,3 +84,10 @@
 2.  由于有冲突要判断，因此再对构造后的结果查询一遍即可。
 
 
+
+##### [HDU 5220 GAL](http://acm.hdu.edu.cn/showproblem.php?pid=5220)（dp）              by Steven
+
+1.  先剪枝，在一个cha里面只有一个role的话，那么这个role就是必选的；
+2.  接下来就是dp,把上一个状态用来求当前的状态。dp[now][(s1|1LL<<to[k.cha],s2^k.magic)]+=dp[pre][(s1,s2)]。k 遍历当前face里面的所有role，(s1,s2)为遍历前面所求的dp里面的所有状态，s1为cha的集合，s2为异或和。
+3.  要用ll...
+
