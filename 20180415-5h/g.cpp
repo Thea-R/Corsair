@@ -1,68 +1,68 @@
-#include<iostream>
-#include<cstring>
-#include<cstdlib>
-#include<cstdio>
-#include<cmath>
-#include<algorithm>
+#include<bits/stdc++.h>
+#define MX 40
+#define ll long long
 using namespace std;
-const int maxn=32+10;
-
-int T, n, ans, cnt, a[maxn], g[maxn];
-bool vis[maxn];
-struct node
-{
-	int fac, cha, mag;
-	bool operator <(const node&t)const
-	{
-		return cha<t.cha;
+struct Node{int x,m;};
+vector<Node>face[MX],cha[MX];
+map<pair<ll,int>,ll> dp[2];
+map<pair<ll,int>,ll>::iterator j;
+int vis[MX];
+int to[MX];
+int tn,n;
+void inint(){
+	tn=0;
+	memset(to,-1,sizeof(to));
+	memset(vis,0,sizeof(vis));
+	for(int i=1;i<=n;i++){
+		face[i].clear();
+		cha[i].clear();
 	}
-}p[maxn];
-
-void Dfs(int i, int k, int mag)//前i个角色，已经选了前k个character，异或和为mag
-{
-	if(k==cnt && mag==0)	++ans;
-	for(int j=i+1; j<=n && p[j].cha<=k+1; j++) if(g[p[j].cha]==1 || !vis[p[j].fac])
-	{
-		if(g[p[j].cha]>1)	vis[p[j].fac]=true;
-		Dfs(j, p[j].cha, (mag^p[j].mag));
-		if(g[p[j].cha]>1)	vis[p[j].fac]=false;
-	}
-	return ;
 }
-
-bool ok()
-{
-	for(int i=1; i<=n; i++)	g[p[i].cha]++;
-	for(int i=1; i<=n; i++) if(g[p[i].cha]==1)
-	{
-		if(vis[p[i].fac])	return false;
-		vis[p[i].fac]=true;
-	}
-	return true;
-}
-
-int main()
-{
-	scanf("%d", &T);
-	while(T--)
-	{
-		scanf("%d", &n);
-
-		for(int i=1; i<=n; i++)
-		{
-			scanf("%d%d%d", &p[i].fac, &p[i].cha, &p[i].mag);
-			a[i]=p[i].cha;
+int main(){
+	int T,i,f,c,m,k;
+	scanf("%d",&T);
+	while(T--){
+		scanf("%d",&n);
+		inint();
+		for(i=1;i<=n;i++){
+			scanf("%d%d%d",&f,&c,&m);
+			if(to[c]==-1) to[c]=tn++;
+			face[f].push_back(Node{c,m});
+			cha[c].push_back(Node{f,m});
 		}
-		sort(a+1, a+1+n);
-		cnt=unique(a+1, a+1+n)-(a+1);
-		for(int i=1; i<=n; i++)	p[i].cha=lower_bound(a+1, a+1+cnt, p[i].cha)-a;
-		sort(p+1, p+1+n);
-
-		ans=0;
-		memset(g, 0, sizeof g);
-		memset(vis, 0, sizeof vis);
-		if(ok())	Dfs(0, 0, 0);
-		printf("%d\n", ans);
+		int flag=0;
+		ll s1=0,s2=0;
+		for(i=1;i<=n;i++)
+			if(cha[i].size()==1){
+				if(vis[cha[i][0].x]==1){
+					printf("0\n");
+					flag=1;
+					break;
+				}
+				s1|=1LL<<to[i];
+				s2^=cha[i][0].m;
+				vis[cha[i][0].x]=1;
+			}
+		if(flag) continue;
+		int now=1,pre=0;
+		dp[1].clear();
+		dp[1][make_pair(s1,s2)]=1;
+		for(i=1;i<=n;i++){  //dp
+			if(vis[i]||face[i].size()==0) continue;
+			swap(now,pre);
+			dp[now]=dp[pre];
+			for(j=dp[pre].begin();j!=dp[pre].end();j++){ //pre
+				pair<ll,int> p=j->first;
+				ll w=j->second;
+				for(k=0;k<face[i].size();k++){    //now
+					pair<ll,int> q=p;
+					q.first|=1LL<<(to[face[i][k].x]);
+					q.second^=face[i][k].m;
+					dp[now][q]+=w;
+				}
+			}
+		}
+		printf("%lld\n",dp[now][make_pair((1LL<<tn)-1,0)]);
 	}
 	return 0;
 }
