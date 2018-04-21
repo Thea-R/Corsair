@@ -1,6 +1,6 @@
 南航校赛，组队第二场，开题还行，写题不够流畅老出现小错误，还有不熟悉的专题比如A的斯坦纳树和I的网络流。
 
-[Link](http://icpc.njust.edu.cn/Contest/5696/)
+[Link](http://icpc.njust.edu.cn/Contest/5698/)
 
 
 
