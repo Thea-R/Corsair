@@ -31,16 +31,16 @@
 
 ## Solved
 
-- [x] A	Movie（简单题）
-- [x] B	Cycle（无向图找奇偶环）
-- [x] C	Segment（猜结论）
-- [x] D	**~~Brackets（线段树）~~**
-- [x] E	Game（约瑟夫环）
-- [ ] F	Repeating
-- [x] G	**~~GAL（DP）~~**
-- [x] H	**~~Occupation（树链剖分）~~**
-- [x] I	Exploration（混合图找环）
-- [x] J	GCD（构造、思维）
+- [x] A    Movie（简单题）
+- [x] B    Cycle（无向图找奇偶环）
+- [x] C    Segment（猜结论）
+- [x] D    **~~Brackets（线段树）~~**
+- [x] E    Game（约瑟夫环）
+- [ ] F    Repeating
+- [x] G    **~~GAL（DP）~~**
+- [x] H    **~~Occupation（树链剖分）~~**
+- [x] I    Exploration（混合图找环）
+- [x] J    GCD（构造、思维）
 
 （完成的题打勾，且**~~赛后补的题加粗+删除线~~**）
 
