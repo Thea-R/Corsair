@@ -35,7 +35,7 @@
 
 - [ ] A    Repair the roads of capital
 - [x] B    A problem of tree（线段树）
-- [ ] C    Defense The World Tree
+- [x] C    **~~Defense The World Tree~~**
 - [x] D    Coding Empire（生成树）
 - [x] E    Warning or not
 - [x] F    Multiple problem
@@ -51,5 +51,15 @@
 
 
 ## Solutions
+
+
+
+##### [C](http://icpc.njust.edu.cn/Contest/6239/C/)（dp+贪心）              by Steven
+
+1.  x塔肯定在最后，所以只用y塔和z塔dp一下就好了，dp[i][j]:前i个位置有j个z塔伤害的最大值；
+2.  dp[i][j]=max{dp[i-1][j-1]+(t+(j-1)*z)*y*(i-j) (第i个位置放z塔) ,dp[i-1][j]+(t+j*z)*y*(i-j-1) (第i个位置不放z塔)};
+3.  加上后面(n-i)个x塔的伤害，ans=max{ans,dp[i][j]+(n-i)*x*(t+j*z)+(n-i)*(t+j*z)*(i-j)*y)}。
+
+
 
 ##### 
