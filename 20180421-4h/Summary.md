@@ -37,8 +37,8 @@
 - [x] B    A problem of tree（线段树）
 - [x] C    **~~Defense The World Tree~~**
 - [x] D    Coding Empire（生成树）
-- [x] E    Warning or not
-- [x] F    Multiple problem
+- [x] E    Warning or not（签到题）
+- [x] F    Multiple problem
 - [ ] G    A problem of tree II
 - [ ] H    April is your lie
 - [ ] I    Beat Bug Empire
@@ -62,4 +62,9 @@
 
 
 
-##### 
+##### [F](http://icpc.njust.edu.cn/Contest/6239/F/)（BFS+同余剪枝）              by Lucaszhao
+
+1.  从最小的有效数开始枚举（不能是0），在后面从小到大枚举有效数，BFS;
+2.  在BFS的过程中，使用一个结构体替代当前数，这个结构体存储当前数%n的结果、当前加上的数、用于输出的pre；
+3.  一个有效的剪枝：记录当前数%n的结果，一旦此数==0，break输出，如果该数以前出现过则pass，否则加入queue，这样复杂度就是O(n)了。
+4.  证明：if A%N==B%N&&A<B: 存A即可。
