@@ -33,8 +33,8 @@
 
 ## Solved
 
-- [ ] A    Repair the roads of capital
-- [x] B    A problem of tree（线段树）
+- [ ] A    **~~Repair the roads of capital~~**
+- [x] B    A problem of tree（线段树）
 - [x] C    **~~Defense The World Tree~~**
 - [x] D    Coding Empire（生成树）
 - [x] E    Warning or not（签到题）
@@ -68,3 +68,12 @@
 2.  在BFS的过程中，使用一个结构体替代当前数，这个结构体存储当前数%n的结果、当前加上的数、用于输出的pre；
 3.  一个有效的剪枝：记录当前数%n的结果，一旦此数==0，break输出，如果该数以前出现过则pass，否则加入queue，这样复杂度就是O(n)了。
 4.  证明：if A%N==B%N&&A<B: 存A即可。
+
+
+
+##### [A](http://icpc.njust.edu.cn/Contest/6239/A/)（斯坦纳树/状压+spfa）              by Lucaszhao
+
+1.  斯坦纳树模板题：求最小斯坦纳树使得k个点连通；
+2.  此题要求左k个点和右k个点连通且一一对应，按2k个点求得最小斯坦纳树即可。
+3.  由于最终可能是森林，故需再进行一次状压dp，dp[state]表示满足state状态的最小斯坦纳树，再对dp[111...111]不断地分划求最优值。
+4.  在3的dp过程中，为了保证k个居所和k个避难所的一一对应关系，需用check函数保证每棵最小斯坦纳树的连接的居所和避难所相等。
