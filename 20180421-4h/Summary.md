@@ -33,14 +33,14 @@
 
 ## Solved
 
-- [ ] A **~~Repair the roads of capital~~**
+- [x] A **~~Repair the roads of capital~~**
 - [x] B A problem of tree（线段树）
 - [x] C **~~Defense The World Tree~~**
 - [x] D Coding Empire（生成树）
 - [x] E Warning or not（签到题）
 - [x] F Multiple problem
 - [ ] G A problem of tree II
-- [ ] H **~~April is your lie~~**
+- [x] H **~~April is your lie~~**
 - [ ] I Beat Bug Empire
 - [x] J Fraction to Decimal（循环节，注意细节处理）
 - [x] K Coding Monkey and stock（水题，枚举中点找左右两边最大最小值差值）
