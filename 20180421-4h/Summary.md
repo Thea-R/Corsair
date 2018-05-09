@@ -33,26 +33,24 @@
 
 ## Solved
 
-- [ ] A    **~~Repair the roads of capital~~**
-- [x] B    A problem of tree（线段树）
-- [x] C    **~~Defense The World Tree~~**
-- [x] D    Coding Empire（生成树）
-- [x] E    Warning or not（签到题）
-- [x] F    Multiple problem
-- [ ] G    A problem of tree II
-- [ ] H    **~~April is your lie~~**
-- [ ] I    Beat Bug Empire
-- [x] J    Fraction to Decimal（循环节，注意细节处理）
-- [x] K    Coding Monkey and stock（水题，枚举中点找左右两边最大最小值差值）
-- [x] L    Coding Monkey and stock II（水题，找连续上升区间取最大最小值差值）
+- [ ] A **~~Repair the roads of capital~~**
+- [x] B A problem of tree（线段树）
+- [x] C **~~Defense The World Tree~~**
+- [x] D Coding Empire（生成树）
+- [x] E Warning or not（签到题）
+- [x] F Multiple problem
+- [ ] G A problem of tree II
+- [ ] H **~~April is your lie~~**
+- [ ] I Beat Bug Empire
+- [x] J Fraction to Decimal（循环节，注意细节处理）
+- [x] K Coding Monkey and stock（水题，枚举中点找左右两边最大最小值差值）
+- [x] L Coding Monkey and stock II（水题，找连续上升区间取最大最小值差值）
 
 （完成的题打勾，且**~~赛后补的题加粗+删除线~~**）
 
 
 
 ## Solutions
-
-
 
 ##### [C](http://icpc.njust.edu.cn/Contest/6239/C/)（dp+贪心）              by Steven
 
@@ -67,7 +65,7 @@
 1.  从最小的有效数开始枚举（不能是0），在后面从小到大枚举有效数，BFS;
 2.  在BFS的过程中，使用一个结构体替代当前数，这个结构体存储当前数%n的结果、当前加上的数、用于输出的pre；
 3.  一个有效的剪枝：记录当前数%n的结果，一旦此数==0，break输出，如果该数以前出现过则pass，否则加入queue，这样复杂度就是O(n)了。
-4.  证明：if A%N==B%N&&A<B: 存A即可。
+4.  证明：if A%N==B%N&&A<B: 存A即可。
 
 
 
@@ -75,7 +73,7 @@
 
 1.  斯坦纳树模板题：求最小斯坦纳树使得k个点连通；
 2.  此题要求左k个点和右k个点连通且一一对应，按2k个点求得最小斯坦纳树即可。
-3.  由于最终可能是森林，故需再进行一次状压dp，dp[state]表示满足state状态的最小斯坦纳树，再对dp[111...111]不断地分划求最优值。
+3.  由于最终可能是森林，故需再进行一次状压dp，dp[state]表示满足state状态的最小斯坦纳树，再对dp[111...111]不断地分划求最优值。
 4.  在3的dp过程中，为了保证k个居所和k个避难所的一一对应关系，需用check函数保证每棵最小斯坦纳树的连接的居所和避难所相等。
 
 
@@ -83,7 +81,7 @@
 ##### [H](http://icpc.njust.edu.cn/Contest/6239/H/)（离散数学集合与关系/思维好题）              by Lucaszhao
 
 1.  仔细观察五种关系实际上可以分为两种关系：集合A属于集合B(关系1）和集合A和集合B的交集为空集（关系四）。关系二可以由关系一表示，关系三是关系二的逆关系，关系五是关系四的逆关系。
-2.  故使用 s(a,b)==1表示集合A属于集合B   f(a,b)==1表示集合A和集合B的交集为空集；
+2.  故使用 s(a,b)\==1表示集合A属于集合B   f(a,b)==1表示集合A和集合B的交集为空集；
 3.  因此记录所有关系二分验证即可。关键在于如何根据已有关系推出所有潜在关系从而判断某一关系的合法性？计算闭包即可。
 4.  仔细思考发现s关系具有自反性、传递性、反对称性，f关系具有反自反性、对称性。因此首先计算s关系的自反闭包、传递闭包，同时在输入时存储f关系的传递闭包。
 5.  关键：**如果一个集合的超集和另一个集合交集为空，则此集合与另一个集合的交集也为空**。利用此条性质可以计算这个特殊的传递闭包。
