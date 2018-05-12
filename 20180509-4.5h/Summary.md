@@ -37,7 +37,7 @@
 - [x] A Peak（签到题）
 - [x] B King of Karaoke
 
-- [ ] C Magic 12 Months
+- [ ] C **~~Magic 12 Months~~**
 
 - [x] D Sequence Swapping（DP）
 
@@ -63,4 +63,8 @@
 
 ## Solutions
 
-to be continued..
+
+##### [C](https://vjudge.net/contest/228174#problem/C)（组合数学）              by Lucaszhao
+1. 看上去是比较复杂的一道组合数学题，其实只要读懂样例，推出基础结论，后面的公式是相对容易被推出的；
+2. 仔细观察样例发现结果第一个月的概率都是 1 ，即使输入为 0 ，那么可以猜想游戏总是在 p=1 时结束，这是容易证明的；
+3. 所以问题转化为：48-n 张牌排列，问在拿走 n1 张 A 之前拿走全部的 ni 张 i 的概率是多少。计算时枚举最后一张 A 的位置即可。
