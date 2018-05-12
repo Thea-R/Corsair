@@ -37,13 +37,13 @@
 - [x] A Peak（签到题）
 - [x] B King of Karaoke
 
-- [ ] C **~~Magic 12 Months~~**
+- [x] C **~~Magic 12 Months~~**
 
 - [x] D Sequence Swapping（DP）
 
 - [ ] E LIS
 
-- [ ] F Now Loading!!!
+- [x] F **~~Now Loading!!!~~**
 
 - [ ] G JUMPin' JUMP UP!!!
 
@@ -68,3 +68,9 @@
 1. 看上去是比较复杂的一道组合数学题，其实只要读懂样例，推出基础结论，后面的公式是相对容易被推出的；
 2. 仔细观察样例发现结果第一个月的概率都是 1 ，即使输入为 0 ，那么可以猜想游戏总是在 p=1 时结束，这是容易证明的；
 3. 所以问题转化为：48-n 张牌排列，问在拿走 n1 张 A 之前拿走全部的 ni 张 i 的概率是多少。计算时枚举最后一张 A 的位置即可。
+
+##### [F](https://vjudge.net/contest/228174#problem/F)（预处理+二分）              by Thea
+
+1.  分母的可能个数很少，考虑预处理每个分母得到若干组前缀和，对于每一次的询问把a[]按分母分为若干区间，这里需要二分处理；
+2.  sum[]定义为long long类型会segmentation fault，而sum[]和a[]同时定义为int类型会TLE… 我也不知道为什么，内心只有一顿mmp= =
+
